@@ -33,6 +33,23 @@
       "neetcodeList": "NeetCode 150",
       "neetcodeCategory": "Linked List",
       "neetcodeStatus": "solved"
+    },
+    {
+      "number": 3,
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "language": "Python",
+      "completed_date": "2026-08-26",
+      "approach": "Use a sliding window and a set to track characters in the current substring. Expand the right side of the window, and when a duplicate appears, move the left side forward while removing characters until the substring is unique again. Track the maximum window length.",
+      "time_complexity": "O(n)",
+      "space_complexity": "0(min(n, charset))",
+      "directory": "solutions/medium/0003-longest-substring-without-repeating-characters",
+      "solution_file": "solutions/medium/0003-longest-substring-without-repeating-characters/solution.py",
+      "neetcode": true,
+      "neetcodeList": "NeetCode 150",
+      "neetcodeCategory": "Sliding Window",
+      "neetcodeStatus": "solved"
     }
   ],
   "lastUpdated": "2026-08-26"

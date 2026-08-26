@@ -20,6 +20,15 @@
           "category": "Linked List",
           "status": "solved",
           "directory": "solutions/medium/0002-add-two-numbers"
+        },
+        {
+          "number": 3,
+          "title": "Longest Substring Without Repeating Characters",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+          "category": "Sliding Window",
+          "status": "solved",
+          "directory": "solutions/medium/0003-longest-substring-without-repeating-characters"
         }
       ]
     }
