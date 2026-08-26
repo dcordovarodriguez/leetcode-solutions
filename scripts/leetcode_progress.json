@@ -50,6 +50,23 @@
       "neetcodeList": "NeetCode 150",
       "neetcodeCategory": "Sliding Window",
       "neetcodeStatus": "solved"
+    },
+    {
+      "number": 4,
+      "title": "Median of Two Sorted Arrays",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/2121346414/",
+      "language": "Python",
+      "completed_date": "2026-08-26",
+      "approach": "Use binary search on the smaller sorted array to find a partition where all values on the left side are less than or equal to all values on the right side. Once the correct partition is found, compute the median from the boundary values without merging the arrays.",
+      "time_complexity": "0(log(min(m, n)))",
+      "space_complexity": "0(1)",
+      "directory": "solutions/hard/0004-median-of-two-sorted-arrays",
+      "solution_file": "solutions/hard/0004-median-of-two-sorted-arrays/solution.py",
+      "neetcode": true,
+      "neetcodeList": "NeetCode 150",
+      "neetcodeCategory": "Binary Search",
+      "neetcodeStatus": "solved"
     }
   ],
   "lastUpdated": "2026-08-26"

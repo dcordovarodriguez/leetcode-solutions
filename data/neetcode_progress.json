@@ -13,6 +13,15 @@
           "directory": "solutions/easy/0001-two-sum"
         },
         {
+          "number": 4,
+          "title": "Median of Two Sorted Arrays",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/2121346414/",
+          "category": "Binary Search",
+          "status": "solved",
+          "directory": "solutions/hard/0004-median-of-two-sorted-arrays"
+        },
+        {
           "number": 2,
           "title": "Add Two Numbers",
           "difficulty": "Medium",

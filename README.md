@@ -1,10 +1,10 @@
 # LeetCode Solutions
 
-![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-3-blue)
+![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-4-blue)
 ![Easy](https://img.shields.io/badge/Easy-1-brightgreen)
 ![Medium](https://img.shields.io/badge/Medium-2-yellow)
-![Hard](https://img.shields.io/badge/Hard-0-red)
-![NeetCode](https://img.shields.io/badge/NeetCode-3%2F150-purple)
+![Hard](https://img.shields.io/badge/Hard-1-red)
+![NeetCode](https://img.shields.io/badge/NeetCode-4%2F150-purple)
 
 This repository tracks my LeetCode practice and NeetCode roadmap progress in one portfolio-ready system.
 
@@ -18,8 +18,8 @@ Last updated: 2026-08-26
 | --- | ---: |
 | Easy | 1 |
 | Medium | 2 |
-| Hard | 0 |
-| **Total** | **3** |
+| Hard | 1 |
+| **Total** | **4** |
 
 ### Languages Used
 
@@ -45,10 +45,11 @@ Last updated: 2026-08-26
 | 1 | Two Sum | Easy | Python | [View Solution](solutions/easy/0001-two-sum) |
 | 2 | Add Two Numbers | Medium | Python | [View Solution](solutions/medium/0002-add-two-numbers) |
 | 3 | Longest Substring Without Repeating Characters | Medium | Python | [View Solution](solutions/medium/0003-longest-substring-without-repeating-characters) |
+| 4 | Median of Two Sorted Arrays | Hard | Python | [View Solution](solutions/hard/0004-median-of-two-sorted-arrays) |
 
 ## NeetCode Progress
 
-**NeetCode 150: 3 / 150 - 2.0%**
+**NeetCode 150: 4 / 150 - 2.7%**
 
 | Category | Solved | Total | Progress |
 | --- | ---: | ---: | --- |
@@ -56,7 +57,7 @@ Last updated: 2026-08-26
 | Two Pointers | 0 | 5 | `------------` |
 | Sliding Window | 1 | 6 | `##----------` |
 | Stack | 0 | 7 | `------------` |
-| Binary Search | 0 | 7 | `------------` |
+| Binary Search | 1 | 7 | `##----------` |
 | Linked List | 1 | 11 | `#-----------` |
 | Trees | 0 | 15 | `------------` |
 | Tries | 0 | 3 | `------------` |
@@ -76,6 +77,7 @@ Last updated: 2026-08-26
 | # | Problem | Category | Status | Solution |
 | ---: | --- | --- | --- | --- |
 | 1 | Two Sum | Arrays & Hashing | solved | [View Solution](solutions/easy/0001-two-sum) |
+| 4 | Median of Two Sorted Arrays | Binary Search | solved | [View Solution](solutions/hard/0004-median-of-two-sorted-arrays) |
 | 2 | Add Two Numbers | Linked List | solved | [View Solution](solutions/medium/0002-add-two-numbers) |
 | 3 | Longest Substring Without Repeating Characters | Sliding Window | solved | [View Solution](solutions/medium/0003-longest-substring-without-repeating-characters) |
 
