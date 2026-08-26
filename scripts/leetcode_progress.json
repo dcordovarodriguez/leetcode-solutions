@@ -16,6 +16,23 @@
       "neetcodeList": "NeetCode 150",
       "neetcodeCategory": "Arrays & Hashing",
       "neetcodeStatus": "solved"
+    },
+    {
+      "number": 2,
+      "title": "Add Two Numbers",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/add-two-numbers/",
+      "language": "Python",
+      "completed_date": "2026-08-26",
+      "approach": "Traverse both linked lists together, add the corresponding digits plus any carry, and build a new linked list with the result digits until both lists and the carry are exhausted.",
+      "time_complexity": "0(max(n, m))",
+      "space_complexity": "0(max(n, m))",
+      "directory": "solutions/medium/0002-add-two-numbers",
+      "solution_file": "solutions/medium/0002-add-two-numbers/solution.py",
+      "neetcode": true,
+      "neetcodeList": "NeetCode 150",
+      "neetcodeCategory": "Linked List",
+      "neetcodeStatus": "solved"
     }
   ],
   "lastUpdated": "2026-08-26"

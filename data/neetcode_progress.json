@@ -11,6 +11,15 @@
           "category": "Arrays & Hashing",
           "status": "solved",
           "directory": "solutions/easy/0001-two-sum"
+        },
+        {
+          "number": 2,
+          "title": "Add Two Numbers",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/add-two-numbers/",
+          "category": "Linked List",
+          "status": "solved",
+          "directory": "solutions/medium/0002-add-two-numbers"
         }
       ]
     }
