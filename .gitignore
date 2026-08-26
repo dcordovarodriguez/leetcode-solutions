@@ -17,6 +17,8 @@ Icon
 logs/
 tmp/
 temp/
+inbox/*
+!inbox/.gitkeep
 
 # Environment and secrets
 .env
@@ -48,4 +50,3 @@ target/
 *.o
 *.out
 *.exe
-

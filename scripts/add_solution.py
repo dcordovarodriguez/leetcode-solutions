@@ -38,6 +38,20 @@ LANGUAGE_EXTENSIONS = {
     "kotlin": ".kt",
 }
 
+SUPPORTED_SOLUTION_EXTENSIONS = {
+    ".py",
+    ".js",
+    ".ts",
+    ".java",
+    ".cpp",
+    ".c",
+    ".cs",
+    ".go",
+    ".rs",
+    ".swift",
+    ".kt",
+}
+
 
 def run(command: list[str], check: bool = True) -> subprocess.CompletedProcess:
     return subprocess.run(command, cwd=REPO_ROOT, text=True, capture_output=True, check=check)
@@ -53,6 +67,54 @@ def prompt_yes_no(label: str, default: bool = False) -> bool:
     default_text = "y" if default else "n"
     value = prompt(f"{label} (y/n)", default_text).lower()
     return value in {"y", "yes", "true", "1"}
+
+
+def inbox_solution_files() -> list[Path]:
+    inbox = REPO_ROOT / "inbox"
+    inbox.mkdir(exist_ok=True)
+    return sorted(
+        path
+        for path in inbox.iterdir()
+        if path.is_file()
+        and path.name != ".gitkeep"
+        and path.suffix.lower() in SUPPORTED_SOLUTION_EXTENSIONS
+    )
+
+
+def choose_solution_path(explicit_path: str | None) -> Path:
+    if explicit_path:
+        return Path(explicit_path).expanduser()
+
+    files = inbox_solution_files()
+    if len(files) == 1:
+        print(f"Using inbox solution: {files[0].name}")
+        return files[0]
+    if len(files) > 1:
+        print("Files found in inbox:")
+        print()
+        for index, path in enumerate(files, start=1):
+            print(f"{index}. {path.name}")
+        print()
+        while True:
+            selection = prompt("Select solution")
+            try:
+                index = int(selection)
+            except ValueError:
+                print("Enter a number from the list.")
+                continue
+            if 1 <= index <= len(files):
+                return files[index - 1]
+            print("Selection out of range.")
+
+    return Path(prompt("Solution file path")).expanduser()
+
+
+def is_inside_inbox(path: Path) -> bool:
+    try:
+        path.resolve().relative_to((REPO_ROOT / "inbox").resolve())
+        return True
+    except ValueError:
+        return False
 
 
 def slugify(title: str) -> str:
@@ -72,6 +134,23 @@ def infer_extension(language: str, source_path: Path) -> str:
     if source_path.suffix:
         return source_path.suffix
     return LANGUAGE_EXTENSIONS.get(language.strip().lower(), ".txt")
+
+
+def infer_language(source_path: Path) -> str:
+    mapping = {
+        ".py": "Python",
+        ".js": "JavaScript",
+        ".ts": "TypeScript",
+        ".java": "Java",
+        ".cpp": "C++",
+        ".c": "C",
+        ".cs": "C#",
+        ".go": "Go",
+        ".rs": "Rust",
+        ".swift": "Swift",
+        ".kt": "Kotlin",
+    }
+    return mapping.get(source_path.suffix.lower(), "")
 
 
 def render_problem_readme(item: dict) -> str:
@@ -148,8 +227,8 @@ def main() -> int:
     title = args.title or prompt("Problem title")
     difficulty = normalize_difficulty(args.difficulty or prompt("Difficulty (Easy/Medium/Hard)"))
     url = args.url or prompt("LeetCode URL")
-    language = args.language or prompt("Programming language")
-    solution_path = Path(args.solution_path or prompt("Solution file path")).expanduser()
+    solution_path = choose_solution_path(args.solution_path)
+    language = args.language or infer_language(solution_path) or prompt("Programming language")
     approach = args.approach or prompt("Brief approach")
     time_complexity = args.time_complexity or prompt("Time complexity", "O(n)")
     space_complexity = args.space_complexity or prompt("Space complexity", "O(1)")
@@ -219,6 +298,9 @@ def main() -> int:
 
     target_dir.mkdir(parents=True, exist_ok=False)
     shutil.copy2(solution_path, target_solution)
+    if not target_solution.exists():
+        print(f"Permanent solution was not created: {target_solution}", file=sys.stderr)
+        return 1
     (target_dir / "README.md").write_text(render_problem_readme(item), encoding="utf-8")
 
     updated = existing + [item]
@@ -238,6 +320,9 @@ def main() -> int:
     run(["git", "commit", "-m", f"leetcode: add {number_int} {title}"])
     if not args.no_push:
         run(["git", "push"])
+
+    if is_inside_inbox(solution_path) and target_solution.exists():
+        solution_path.unlink()
 
     print(f"Added {number_int}. {title}")
     print(target_dir)

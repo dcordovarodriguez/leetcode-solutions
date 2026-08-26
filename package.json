@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "inbox": "python3 scripts/inbox.py",
     "leetcode:add": "python3 scripts/add_solution.py",
     "leetcode:update-readme": "python3 scripts/update_readme.py --check",
     "neetcode:update": "python3 scripts/neetcode_update.py",
