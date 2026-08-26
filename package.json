@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "leetcode:add": "python3 scripts/add_solution.py",
+    "leetcode:update-readme": "python3 scripts/update_readme.py --check"
+  },
+  "private": true
+}
+
