@@ -1,10 +1,10 @@
 # LeetCode Solutions
 
-![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-0-blue)
-![Easy](https://img.shields.io/badge/Easy-0-brightgreen)
+![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-1-blue)
+![Easy](https://img.shields.io/badge/Easy-1-brightgreen)
 ![Medium](https://img.shields.io/badge/Medium-0-yellow)
 ![Hard](https://img.shields.io/badge/Hard-0-red)
-![NeetCode](https://img.shields.io/badge/NeetCode-0%2F150-purple)
+![NeetCode](https://img.shields.io/badge/NeetCode-1%2F150-purple)
 
 This repository tracks my LeetCode practice and NeetCode roadmap progress in one portfolio-ready system.
 
@@ -16,14 +16,14 @@ Last updated: 2026-08-26
 
 | Difficulty | Solved |
 | --- | ---: |
-| Easy | 0 |
+| Easy | 1 |
 | Medium | 0 |
 | Hard | 0 |
-| **Total** | **0** |
+| **Total** | **1** |
 
 ### Languages Used
 
-No solutions added yet.
+- Python
 
 ### Topics Practiced
 
@@ -42,15 +42,15 @@ No solutions added yet.
 
 | # | Problem | Difficulty | Language | Solution |
 | ---: | --- | --- | --- | --- |
-| - | No solutions added yet. | - | - | - |
+| 1 | Two Sum | Easy | Python | [View Solution](solutions/easy/0001-two-sum) |
 
 ## NeetCode Progress
 
-**NeetCode 150: 0 / 150 - 0.0%**
+**NeetCode 150: 1 / 150 - 0.7%**
 
 | Category | Solved | Total | Progress |
 | --- | ---: | ---: | --- |
-| Arrays & Hashing | 0 | 9 | `------------` |
+| Arrays & Hashing | 1 | 9 | `#-----------` |
 | Two Pointers | 0 | 5 | `------------` |
 | Sliding Window | 0 | 6 | `------------` |
 | Stack | 0 | 7 | `------------` |
@@ -73,7 +73,7 @@ No solutions added yet.
 
 | # | Problem | Category | Status | Solution |
 | ---: | --- | --- | --- | --- |
-| - | No NeetCode problems tracked yet. | - | - | - |
+| 1 | Two Sum | Arrays & Hashing | solved | [View Solution](solutions/easy/0001-two-sum) |
 
 ## Adding a Solution
 

@@ -2,7 +2,17 @@
   "lastUpdated": "2026-08-26",
   "lists": {
     "NeetCode 150": {
-      "problems": []
+      "problems": [
+        {
+          "number": 1,
+          "title": "Two Sum",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/two-sum/description/",
+          "category": "Arrays & Hashing",
+          "status": "solved",
+          "directory": "solutions/easy/0001-two-sum"
+        }
+      ]
     }
   }
 }
