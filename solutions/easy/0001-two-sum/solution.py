@@ -1,24 +1,12 @@
-from typing import List
-
 class Solution:
-    def addTwoNumbers(self, l1, l2):
-        dummy = ListNode (0)
-        current = dummy
-        carry = 0
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
 
-        while l1 or l2 or carry: 
-            val1 = l1.val if l1 else 0
-            val2 = l2.val if l2 else 0
+        for i, num in enumerate(nums):
+            needed = target - num
 
-            total = val1 + val2 + carry
-            carry = total // 10
-            digit = total % 10
+            if needed in seen: 
+                return [seen[needed], i]
 
-            current.next = ListNode(digit)
-            current = current.next
+            seen[num] = i
 
-            if l1:
-                l1 = l1.next
-            if l2:
-                l2 = l2.next
-        return dummy.next
