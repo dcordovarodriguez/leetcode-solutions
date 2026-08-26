@@ -1,0 +1,23 @@
+{
+  "defaultList": "NeetCode 150",
+  "categories": {
+    "Arrays & Hashing": 9,
+    "Two Pointers": 5,
+    "Sliding Window": 6,
+    "Stack": 7,
+    "Binary Search": 7,
+    "Linked List": 11,
+    "Trees": 15,
+    "Tries": 3,
+    "Heap / Priority Queue": 7,
+    "Backtracking": 9,
+    "Graphs": 13,
+    "Advanced Graphs": 6,
+    "1-D Dynamic Programming": 12,
+    "2-D Dynamic Programming": 11,
+    "Greedy": 8,
+    "Intervals": 6,
+    "Math & Geometry": 8,
+    "Bit Manipulation": 7
+  }
+}

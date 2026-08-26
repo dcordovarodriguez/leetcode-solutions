@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Generate README.md from scripts/leetcode_progress.json."""
+"""Generate README.md from LeetCode and NeetCode progress data."""
 
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 from collections import Counter
-from datetime import date
-from pathlib import Path
+
+from neetcode_utils import (
+    REPO_ROOT,
+    load_leetcode_progress,
+    load_solutions,
+    neetcode_summary,
+)
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-PROGRESS_PATH = REPO_ROOT / "scripts" / "leetcode_progress.json"
 README_PATH = REPO_ROOT / "README.md"
 DIFFICULTIES = ("Easy", "Medium", "Hard")
 TOPICS = (
@@ -29,50 +31,37 @@ TOPICS = (
 )
 
 
-def load_solutions() -> list[dict]:
-    if not PROGRESS_PATH.exists():
-        return []
-    data = json.loads(PROGRESS_PATH.read_text(encoding="utf-8"))
-    return sorted(data.get("solutions", []), key=lambda item: int(item["number"]))
-
-
-def badge(label: str, value: int, color: str) -> str:
+def badge(label: str, value: int | str, color: str) -> str:
     safe_label = label.replace(" ", "%20")
-    return f"![{label}](https://img.shields.io/badge/{safe_label}-{value}-{color})"
+    safe_value = str(value).replace(" ", "%20").replace("/", "%2F").replace("-", "--")
+    return f"![{label}](https://img.shields.io/badge/{safe_label}-{safe_value}-{color})"
 
 
-def render_readme(solutions: list[dict]) -> str:
+def progress_bar(done: int, total: int, width: int = 12) -> str:
+    if total <= 0:
+        return "`------------`"
+    filled = round(done / total * width)
+    return f"`{'#' * filled}{'-' * (width - filled)}`"
+
+
+def render_leetcode_section(solutions: list[dict]) -> list[str]:
     counts = Counter(item["difficulty"] for item in solutions)
     languages = sorted({item["language"] for item in solutions})
     total = len(solutions)
 
     lines = [
-        "# LeetCode Solutions",
-        "",
-        badge("Total solved", total, "blue"),
-        badge("Easy", counts["Easy"], "brightgreen"),
-        badge("Medium", counts["Medium"], "yellow"),
-        badge("Hard", counts["Hard"], "red"),
-        "",
-        "This repository tracks my LeetCode practice and documents my progress with data structures, algorithms, and problem-solving patterns.",
-        "",
-        "Solutions are added with a local script and committed through my own GitHub CLI authentication. This avoids granting a third-party browser extension broad access to my GitHub repositories while keeping the repo useful as a professional portfolio record.",
-        "",
-        f"Last updated: {date.today().isoformat()}",
-        "",
-        "## Statistics",
+        "## LeetCode Progress",
         "",
         "| Difficulty | Solved |",
         "| --- | ---: |",
     ]
-
     for difficulty in DIFFICULTIES:
         lines.append(f"| {difficulty} | {counts[difficulty]} |")
     lines.extend(
         [
             f"| **Total** | **{total}** |",
             "",
-            "## Languages Used",
+            "### Languages Used",
             "",
         ]
     )
@@ -85,7 +74,7 @@ def render_readme(solutions: list[dict]) -> str:
     lines.extend(
         [
             "",
-            "## Topics Practiced",
+            "### Topics Practiced",
             "",
         ]
     )
@@ -93,7 +82,7 @@ def render_readme(solutions: list[dict]) -> str:
     lines.extend(
         [
             "",
-            "## Completed Problems",
+            "### Completed Problems",
             "",
             "| # | Problem | Difficulty | Language | Solution |",
             "| ---: | --- | --- | --- | --- |",
@@ -102,14 +91,87 @@ def render_readme(solutions: list[dict]) -> str:
 
     if solutions:
         for item in solutions:
-            title = item["title"]
-            link = item["directory"]
             lines.append(
-                f"| {int(item['number'])} | {title} | {item['difficulty']} | {item['language']} | [View Solution]({link}) |"
+                f"| {int(item['number'])} | {item['title']} | {item['difficulty']} | {item['language']} | [View Solution]({item['directory']}) |"
             )
     else:
         lines.append("| - | No solutions added yet. | - | - | - |")
+    return lines
 
+
+def render_neetcode_section() -> list[str]:
+    summary = neetcode_summary()
+    list_name = summary["list"]
+    total = summary["total"]
+    solved = summary["solved"]
+    percent = summary["percent"]
+
+    lines = [
+        "## NeetCode Progress",
+        "",
+        f"**{list_name}: {solved} / {total} - {percent}%**",
+        "",
+        "| Category | Solved | Total | Progress |",
+        "| --- | ---: | ---: | --- |",
+    ]
+
+    for category, category_total in summary["categoryTotals"].items():
+        category_solved = summary["solvedByCategory"][category]
+        lines.append(
+            f"| {category} | {category_solved} | {category_total} | {progress_bar(category_solved, int(category_total))} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "### Tracked NeetCode Problems",
+            "",
+            "| # | Problem | Category | Status | Solution |",
+            "| ---: | --- | --- | --- | --- |",
+        ]
+    )
+
+    tracked = []
+    for problems in summary["trackedByCategory"].values():
+        tracked.extend(problems)
+    tracked.sort(key=lambda item: (item.get("category", ""), int(item.get("order", 9999)), int(item["number"])))
+
+    if tracked:
+        for item in tracked:
+            link = f"[View Solution]({item['directory']})" if item.get("directory") else "-"
+            lines.append(f"| {int(item['number'])} | {item['title']} | {item['category']} | {item['status']} | {link} |")
+    else:
+        lines.append("| - | No NeetCode problems tracked yet. | - | - | - |")
+
+    return lines
+
+
+def render_readme(solutions: list[dict]) -> str:
+    counts = Counter(item["difficulty"] for item in solutions)
+    lc_total = len(solutions)
+    nc_summary = neetcode_summary()
+    progress = load_leetcode_progress()
+    last_updated = max(progress.get("lastUpdated", ""), nc_summary.get("lastUpdated", ""))
+
+    lines = [
+        "# LeetCode Solutions",
+        "",
+        badge("LeetCode solved", lc_total, "blue"),
+        badge("Easy", counts["Easy"], "brightgreen"),
+        badge("Medium", counts["Medium"], "yellow"),
+        badge("Hard", counts["Hard"], "red"),
+        badge("NeetCode", f"{nc_summary['solved']}/{nc_summary['total']}", "purple"),
+        "",
+        "This repository tracks my LeetCode practice and NeetCode roadmap progress in one portfolio-ready system.",
+        "",
+        "Solutions are added with a local script and committed through my own GitHub CLI authentication. This avoids granting a third-party browser extension broad access to my GitHub repositories while keeping the repo useful as a professional portfolio record.",
+        "",
+        f"Last updated: {last_updated or '2026-08-26'}",
+        "",
+    ]
+    lines.extend(render_leetcode_section(solutions))
+    lines.append("")
+    lines.extend(render_neetcode_section())
     lines.extend(
         [
             "",
@@ -127,7 +189,19 @@ def render_readme(solutions: list[dict]) -> str:
             "npm run leetcode:add",
             "```",
             "",
-            "The script creates the correct problem directory, copies your solution file, generates the per-problem README, updates this main README, stages only the relevant files, commits, and pushes to GitHub.",
+            "The script creates the correct problem directory, copies your solution file, generates the per-problem README, updates LeetCode and optional NeetCode metadata, updates this main README, stages only the relevant files, commits, and pushes to GitHub.",
+            "",
+            "To update NeetCode roadmap progress without adding a completed solution, run:",
+            "",
+            "```bash",
+            "npm run neetcode:update",
+            "```",
+            "",
+            "To print a terminal progress summary, run:",
+            "",
+            "```bash",
+            "npm run neetcode:status",
+            "```",
             "",
             "Per-problem notes include the problem number, title, difficulty, LeetCode URL, language, completion date, approach, time complexity, and space complexity. Full LeetCode problem statements are intentionally not copied into this repository.",
             "",
@@ -155,4 +229,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
