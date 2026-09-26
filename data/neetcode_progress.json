@@ -1,8 +1,18 @@
 {
-  "lastUpdated": "2026-08-26",
+  "lastUpdated": "2026-09-26",
   "lists": {
     "NeetCode 150": {
       "problems": [
+        {
+          "number": 5,
+          "title": "Longest Palindromic Substring",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+          "category": "1-D Dynamic Programming",
+          "status": "solved",
+          "order": 150,
+          "directory": "solutions/medium/0005-longest-palindromic-substring"
+        },
         {
           "number": 1,
           "title": "Two Sum",

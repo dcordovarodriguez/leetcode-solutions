@@ -1,28 +1,29 @@
 # LeetCode Solutions
 
-![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-4-blue)
+![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-5-blue)
 ![Easy](https://img.shields.io/badge/Easy-1-brightgreen)
-![Medium](https://img.shields.io/badge/Medium-2-yellow)
+![Medium](https://img.shields.io/badge/Medium-3-yellow)
 ![Hard](https://img.shields.io/badge/Hard-1-red)
-![NeetCode](https://img.shields.io/badge/NeetCode-4%2F150-purple)
+![NeetCode](https://img.shields.io/badge/NeetCode-5%2F150-purple)
 
 This repository tracks my LeetCode practice and NeetCode roadmap progress in one portfolio-ready system.
 
 Solutions are added with a local script and committed through my own GitHub CLI authentication. This avoids granting a third-party browser extension broad access to my GitHub repositories while keeping the repo useful as a professional portfolio record.
 
-Last updated: 2026-08-26
+Last updated: 2026-09-26
 
 ## LeetCode Progress
 
 | Difficulty | Solved |
 | --- | ---: |
 | Easy | 1 |
-| Medium | 2 |
+| Medium | 3 |
 | Hard | 1 |
-| **Total** | **4** |
+| **Total** | **5** |
 
 ### Languages Used
 
+- C++
 - Python
 
 ### Topics Practiced
@@ -46,10 +47,11 @@ Last updated: 2026-08-26
 | 2 | Add Two Numbers | Medium | Python | [View Solution](solutions/medium/0002-add-two-numbers) |
 | 3 | Longest Substring Without Repeating Characters | Medium | Python | [View Solution](solutions/medium/0003-longest-substring-without-repeating-characters) |
 | 4 | Median of Two Sorted Arrays | Hard | Python | [View Solution](solutions/hard/0004-median-of-two-sorted-arrays) |
+| 5 | Longest Palindromic Substring | Medium | C++ | [View Solution](solutions/medium/0005-longest-palindromic-substring) |
 
 ## NeetCode Progress
 
-**NeetCode 150: 4 / 150 - 2.7%**
+**NeetCode 150: 5 / 150 - 3.3%**
 
 | Category | Solved | Total | Progress |
 | --- | ---: | ---: | --- |
@@ -65,7 +67,7 @@ Last updated: 2026-08-26
 | Backtracking | 0 | 9 | `------------` |
 | Graphs | 0 | 13 | `------------` |
 | Advanced Graphs | 0 | 6 | `------------` |
-| 1-D Dynamic Programming | 0 | 12 | `------------` |
+| 1-D Dynamic Programming | 1 | 12 | `#-----------` |
 | 2-D Dynamic Programming | 0 | 11 | `------------` |
 | Greedy | 0 | 8 | `------------` |
 | Intervals | 0 | 6 | `------------` |
@@ -76,6 +78,7 @@ Last updated: 2026-08-26
 
 | # | Problem | Category | Status | Solution |
 | ---: | --- | --- | --- | --- |
+| 5 | Longest Palindromic Substring | 1-D Dynamic Programming | solved | [View Solution](solutions/medium/0005-longest-palindromic-substring) |
 | 1 | Two Sum | Arrays & Hashing | solved | [View Solution](solutions/easy/0001-two-sum) |
 | 4 | Median of Two Sorted Arrays | Binary Search | solved | [View Solution](solutions/hard/0004-median-of-two-sorted-arrays) |
 | 2 | Add Two Numbers | Linked List | solved | [View Solution](solutions/medium/0002-add-two-numbers) |

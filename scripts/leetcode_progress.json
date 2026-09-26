@@ -67,7 +67,25 @@
       "neetcodeList": "NeetCode 150",
       "neetcodeCategory": "Binary Search",
       "neetcodeStatus": "solved"
+    },
+    {
+      "number": 5,
+      "title": "Longest Palindromic Substring",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "language": "C++",
+      "completed_date": "2026-09-26",
+      "approach": "Expand outward from every possible center, checking both odd- and even-length palindromes. Track the starting index and length of the longest palindrome found, then return that substring.",
+      "time_complexity": "Time complexity: O(n\u00b2)",
+      "space_complexity": "Space complexity: O(1)",
+      "directory": "solutions/medium/0005-longest-palindromic-substring",
+      "solution_file": "solutions/medium/0005-longest-palindromic-substring/solution.cpp",
+      "neetcode": true,
+      "neetcodeList": "NeetCode 150",
+      "neetcodeCategory": "1-D Dynamic Programming",
+      "neetcodeStatus": "solved",
+      "neetcodeOrder": 150
     }
   ],
-  "lastUpdated": "2026-08-26"
+  "lastUpdated": "2026-09-26"
 }
