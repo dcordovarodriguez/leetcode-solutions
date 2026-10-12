@@ -85,7 +85,21 @@
       "neetcodeCategory": "1-D Dynamic Programming",
       "neetcodeStatus": "solved",
       "neetcodeOrder": 150
+    },
+    {
+      "number": 6,
+      "title": "zigzag conversion",
+      "difficulty": "Medium",
+      "url": ": https://leetcode.com/problems/zigzag-conversion/",
+      "language": "C++",
+      "completed_date": "2026-10-12",
+      "approach": "Simulate the zigzag by placing each character into its current row while moving down and then back up. Reverse direction at the first and last rows, then concatenate all rows.",
+      "time_complexity": "O(n)",
+      "space_complexity": "O(1)",
+      "directory": "solutions/medium/0006-zigzag-conversion",
+      "solution_file": "solutions/medium/0006-zigzag-conversion/solution.cpp",
+      "neetcode": false
     }
   ],
-  "lastUpdated": "2026-09-26"
+  "lastUpdated": "2026-10-12"
 }
