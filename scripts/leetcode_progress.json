@@ -99,7 +99,21 @@
       "directory": "solutions/medium/0006-zigzag-conversion",
       "solution_file": "solutions/medium/0006-zigzag-conversion/solution.cpp",
       "neetcode": false
+    },
+    {
+      "number": 7,
+      "title": "Reverse Integer",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/reverse-integer/",
+      "language": "C++",
+      "completed_date": "2026-10-14",
+      "approach": "I get the last digit one at a time and append it to the reverslse. Before I multiply by 10 and adding the next digit, I check whether that would exceed the 32 bit integer range, and return 0 if it does.",
+      "time_complexity": "0(log |x|)",
+      "space_complexity": "O(1)",
+      "directory": "solutions/medium/0007-reverse-integer",
+      "solution_file": "solutions/medium/0007-reverse-integer/solution.cpp",
+      "neetcode": false
     }
   ],
-  "lastUpdated": "2026-10-12"
+  "lastUpdated": "2026-10-14"
 }
