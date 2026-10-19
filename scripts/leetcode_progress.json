@@ -113,7 +113,21 @@
       "directory": "solutions/medium/0007-reverse-integer",
       "solution_file": "solutions/medium/0007-reverse-integer/solution.cpp",
       "neetcode": false
+    },
+    {
+      "number": 9,
+      "title": "Palindrome Number",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/palindrome-number/",
+      "language": "C++",
+      "completed_date": "2026-10-19",
+      "approach": "Reject negative numbers and numbers ending in zero unless the number itself is zero. Reverse only the second half of the integer, then compare the two halves, ignoring the middle digit for odd-length numbers.",
+      "time_complexity": "0(log x)",
+      "space_complexity": "O(1)",
+      "directory": "solutions/easy/0009-palindrome-number",
+      "solution_file": "solutions/easy/0009-palindrome-number/solution.cpp",
+      "neetcode": false
     }
   ],
-  "lastUpdated": "2026-10-14"
+  "lastUpdated": "2026-10-19"
 }

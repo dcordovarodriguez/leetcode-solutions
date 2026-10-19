@@ -1,7 +1,7 @@
 # LeetCode Solutions
 
-![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-7-blue)
-![Easy](https://img.shields.io/badge/Easy-1-brightgreen)
+![LeetCode solved](https://img.shields.io/badge/LeetCode%20solved-8-blue)
+![Easy](https://img.shields.io/badge/Easy-2-brightgreen)
 ![Medium](https://img.shields.io/badge/Medium-5-yellow)
 ![Hard](https://img.shields.io/badge/Hard-1-red)
 ![NeetCode](https://img.shields.io/badge/NeetCode-5%2F150-purple)
@@ -10,16 +10,16 @@ This repository tracks my LeetCode practice and NeetCode roadmap progress in one
 
 Solutions are added with a local script and committed through my own GitHub CLI authentication. This avoids granting a third-party browser extension broad access to my GitHub repositories while keeping the repo useful as a professional portfolio record.
 
-Last updated: 2026-10-14
+Last updated: 2026-10-19
 
 ## LeetCode Progress
 
 | Difficulty | Solved |
 | --- | ---: |
-| Easy | 1 |
+| Easy | 2 |
 | Medium | 5 |
 | Hard | 1 |
-| **Total** | **7** |
+| **Total** | **8** |
 
 ### Languages Used
 
@@ -50,6 +50,7 @@ Last updated: 2026-10-14
 | 5 | Longest Palindromic Substring | Medium | C++ | [View Solution](solutions/medium/0005-longest-palindromic-substring) |
 | 6 | zigzag conversion | Medium | C++ | [View Solution](solutions/medium/0006-zigzag-conversion) |
 | 7 | Reverse Integer | Medium | C++ | [View Solution](solutions/medium/0007-reverse-integer) |
+| 9 | Palindrome Number | Easy | C++ | [View Solution](solutions/easy/0009-palindrome-number) |
 
 ## NeetCode Progress
 
