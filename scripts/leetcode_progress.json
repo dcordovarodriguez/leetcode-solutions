@@ -127,7 +127,21 @@
       "directory": "solutions/easy/0009-palindrome-number",
       "solution_file": "solutions/easy/0009-palindrome-number/solution.cpp",
       "neetcode": false
+    },
+    {
+      "number": 10,
+      "title": "Regular Expression Matching",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/regular-expression-matching/",
+      "language": "C++",
+      "completed_date": "2026-10-28",
+      "approach": "use a 2d dynamic programming table where dp[i][j] represents whether the first i characters of the string match teh first j characters of the pattern. then handle normal characters and '.' with a direct previous-state match. and handle '*' by skipping the pattern or usign it to consume another matching character.",
+      "time_complexity": "0(m * n)",
+      "space_complexity": "0(m * n)",
+      "directory": "solutions\\hard\\0010-regular-expression-matching",
+      "solution_file": "solutions\\hard\\0010-regular-expression-matching\\solution.cpp",
+      "neetcode": false
     }
   ],
-  "lastUpdated": "2026-10-19"
+  "lastUpdated": "2026-10-28"
 }
